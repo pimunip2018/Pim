@@ -17,5 +17,18 @@ namespace HelpDesk.MVC.Controllers
             var usuarioViewModel = Mapper.Map<IEnumerable<Usuario>, IEnumerable<UsuarioViewModel>>(_usuarioRepository.GetAll());
             return View(usuarioViewModel);
         }
+
+        [HttpGet]
+        public ActionResult Create(UsuarioViewModel usuario)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    var usuarioDomain = Mapper.Map<UsuarioViewModel, Usuario>(usuario);
+            //    _usuarioRepository.Add(usuarioDomain);
+            //}
+            //return RedirectToAction("index");
+            return View();
+        }
+
     }
 }

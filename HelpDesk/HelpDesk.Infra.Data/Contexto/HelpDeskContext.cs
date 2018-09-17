@@ -62,8 +62,5 @@ namespace HelpDesk.Infra.Data.Contexto
             return base.SaveChanges();
         }
 
-        // public System.Data.Entity.DbSet<HelpDesk.MVC.Models.ViewModels.UsuarioViewModel> UsuarioViewModels { get; set; }
-
-        //public System.Data.Entity.DbSet<HelpDesk.Domain.Entities.TipoPerfilViewModel> TipoPerfilViewModels { get; set; }
-    }
+        }
 }
