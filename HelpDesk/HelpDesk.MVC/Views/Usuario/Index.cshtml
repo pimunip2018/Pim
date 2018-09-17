@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HelpDesk.MVC.Models.ViewModels.UsuarioViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="grid_cadastro" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TipoPerfil.Descricao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nome)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.dtNasc)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Ativo)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TipoPerfil.Descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dtNasc)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Ativo)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.UsuarioID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.UsuarioID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.UsuarioID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>
