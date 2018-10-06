@@ -1,0 +1,139 @@
+﻿@model List<HelpDesk.MVC.Models.ViewModels.UsuarioViewModel>
+@{
+    Layout = "~/Views/Shared/_Cadastro.cshtml";
+    ViewBag.Title = " País";
+    ViewBag.Lista = Model;
+
+}
+
+@section Styles{
+    <link href="~/Content/bootstrap-select.css" rel="stylesheet" />
+    <link href="~/Content/Cadastro/Usuario.css" rel="stylesheet" />
+}
+
+@section TituloGrid{
+    <th><span class="coluna-ordenacao" data-campo="nome">Nome</span></th>
+    <th><span class="coluna-ordenacao" data-campo="email">E-mail</span></th>
+    <th><span class="coluna-ordenacao" data-campo="DtNasc">Data de Nascimento</span></th>
+    <th><span class="coluna-ordenacao" data-campo="ativo">Ativo</span></th>
+    <th>Ação</th>
+}
+
+@section CamposCadastro{
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("txt_nome", "Nome", new { @class = "col-md-3 control-label" })
+            <div class="col-md-12">
+                @Html.TextBox("txt_nome", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("txtemail", "E-mail", new { @class = "col-md-3 control-label" })
+            <div class="col-md-12">
+                @Html.TextBox("txtemail", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("txtDtNasc", "Data de Nascimento", new { @class = "col-md-3 control-label" })
+            <div class="col-md-12">
+                @Html.TextBox("txtDtNasc", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("cbx_ativo", "Ativo", new { @class = "col-md-3 control-label" })
+            <div class="col-md-12">
+                @Html.CheckBox("cbx_ativo")
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/Scripts/bootstrap-select.js"></script>
+
+    <script>
+        var tituloPagina = '@ViewBag.Title';
+        var url_excluir = '@Url.Action("ExcluirPais", "CadPais")';
+        var url_confirmar = '@Url.Action("SalvarPais", "CadPais")';
+        var url_page_click = '@Url.Action("PaisPagina", "CadPais")';
+        var url_tam_pag_change = '@Url.Action("PaisPagina", "CadPais")';
+        var url_filtro_change = '@Url.Action("PaisPagina", "CadPais")';
+        var url_alterar = '@Url.Action("RecuperarPais", "CadPais")';
+        var linhas = [];
+
+        @{
+            var linha = 0;
+            foreach (var item in Model)
+            {
+                linha++;
+                if (linha <= ViewBag.QuantMaxLinhasPorPagina)
+                {
+                    @:linhas.push(@Html.Raw(Json.Encode(item)));
+                                                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+
+    </script>
+    <script src="~/Scripts/Cadastro/Pais.js"></script>
+    <script id="template-grid" type="x-tmpl-mustache">
+
+        <tr data-id="{{Id}}">
+            <td>{{Nome}}</td>
+            <td>{{Email}}</td>
+            <td>{{dtNasc}}</td>
+            <td>{{#Ativo}}SIM{{/Ativo}}{{^Ativo}}NÃO{{/Ativo}}</td>
+            <td>
+                <a class="btn btn-primary btn-alterar" role="button"><i class="glyphicon glyphicon-pencil"></i> Alterar</a>
+                <a class="btn btn-danger btn-excluir" role="button"><i class="glyphicon glyphicon-trash"></i> Excluir</a>
+            </td>
+        </tr>
+    </script>
+
+}
+
+@*<div>
+
+    <table class="table table-condensed table-hover table-striped bmw-list" id="cod" style="width:1000px">
+        <tr>
+
+            <th data-order-field="nome">Nome</th>
+            <th data-order-field="email">E-mail</th>
+            <th data-order-field="dtNasc">Data de Nascimento</th>
+            <th data-order-field="ativo">Ativo</th>
+            <th class="button "></th>
+        </tr>
+
+        @foreach (var m in Model)
+        {
+            <tr data-pk="@m.UsuarioID">
+
+                <td>@m.Nome</td>
+                <td>@m.Email</td>
+                <td>@m.dtNasc</td>
+
+
+                <td>
+                    @if (m.Ativo == true)
+                    {
+                        <text>Ativo</text>
+                    }
+                    else
+                    {
+                        <text>Inativo</text>
+                    }
+                </td>
+                <td class="button edit">
+                    <a title="Editar" class="RowDefaultButton" href="@(Url.Action("Edit", new { pk = m.UsuarioID, callerUrl = Request.QueryString[HelpDesk.MVC.Resources.ViewData.CallerUrl] }))" data-toggle="tooltip"><i class="fa fa-edit " aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+
+
+
+</div>*@

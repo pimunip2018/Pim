@@ -1,0 +1,110 @@
+﻿@using System.Web.Script.Serialization;
+@model HelpDesk.MVC.Models.ViewModels.UsuarioViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row list-header ">
+    @*<h1>@ViewData[BmwMvcBase.Resources.ViewData.Title]</h1>*@
+    <hr />
+</div>
+
+
+<form id="form" action="@Url.Action("Edit", new { callerUrl = Request.getCallbackUrl(Url.Action("Index")) } )" method="post">
+    <div class="row">
+        @*PK - SEMPRE criar um HiddenField para os campos da PK *@
+        @Html.HiddenFor(m => m.Id)
+
+
+        @*Abaixo, é expor os campos para digitação. A diagramação pode ser livremente criada para cada registro. Não há regras aqui.*@
+        <div class="row">
+            <div class="col-md-4  form-group">
+                <label class="control-label">Tipo Perfil</label>
+                <div class="checks">
+
+                    <label>@Html.RadioButtonFor(m => m.PerfilInterno, true) Interno</label>
+                    <label>@Html.RadioButtonFor(m => m.PerfilInterno, false) Externo</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4  form-group">
+                <label class="control-label">Perfil do Usuário @Html.Raw(Resources.HtmlConstants.RequiredIndicator)</label>
+                @Html.DropDownList("IdPerfilUsuario",
+                                                                          new SelectList(
+                                                                              (List<Refin.Dal.Refin_PerfilUsuario>)ViewData[Refin.Dal.BusinessObjects.PerfilUsuario.RESOURCE_NAME + BmwMvcBase.Resources.Expressions.LIST],
+                                                                              "Id",
+                                                                              "Perfil",
+                                                                              null
+                                                                              ),
+                                                                          new Dictionary<string, Object> { { "class", "form-control  select2me " }, { "data-placeholder", "Selecionar..." }, { "required", "required" } }
+                                                                     )
+            </div>
+            <div class="col-md-4  form-group">
+                <label class="control-label">CPF @Html.Raw(Resources.HtmlConstants.RequiredIndicator)</label>
+                @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control MaskCPF" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8  form-group">
+                <label class="control-label">Nome Completo @Html.Raw(Resources.HtmlConstants.RequiredIndicator)</label>
+                @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4  form-group">
+                <label class="control-label">QNumber</label>
+                @Html.TextBoxFor(m => m.QNumber, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4  form-group">
+                <label class="control-label">sGate User</label>
+                @Html.TextBoxFor(m => m.sGateUser, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8  form-group">
+                <label class="control-label">E-mail</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4  form-group">
+                <label class="control-label">Telefone Comercial</label>
+                @Html.TextBoxFor(m => m.Telefone, new { @class = "form-control MaskTelefone" })
+            </div>
+            <div class="col-md-4  form-group">
+                <label class="control-label">Celular</label>
+                @Html.TextBoxFor(m => m.Celular, new { @class = "form-control MaskTelefone" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4  form-group">
+                <label class="control-label">Status</label>
+                <div class="checks">
+                    <label>@Html.RadioButtonFor(m => m.Ativo, true) Ativo</label>
+                    <label>@Html.RadioButtonFor(m => m.Ativo, false) Intativo</label>
+                </div>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+
+        <div class="row">
+            <div class="col-md-8  form-group">
+                <div style="border-radius: 5px;    border: 1px solid grey;    padding: 30px;    ">
+                    @Html.Partial("Dealer/_Filter")
+                    @Html.Hidden("dealertsToAttach", new JavaScriptSerializer().Serialize(ViewContext.ViewData[Refin.Controllers.UsuarioController.ATTACHED_DEALERS]))
+                    @*var dealers= JSON.parse($("#dealertsToAttach").val())*@
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <input type="submit" class="btn btn-primary @BmwMvcBase.Resources.FrontEnd.KILL_ON_ERROR" value="Salvar" />
+            <a class="btn btn-default " href="@(Request.getCallbackUrl(Url.Action("Index")))">Voltar</a>
+        </div>
+
+    </div>
+</form>
+
+<script src="~/Scripts/TipoPerfil.js"></script>

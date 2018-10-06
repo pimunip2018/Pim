@@ -1,0 +1,13 @@
+﻿
+@model HelpDesk.Domain.Entities.Pager
+@*//TODO: Criar script que altera a active page e dispara um callback ao clicar *@
+
+<nav aria-label="">
+    <ul class="pagination ">
+        @for (int i = 1; i <= (Model.TotalRegisters / Model.PageSize) + (Model.TotalRegisters % Model.PageSize == 0 ? 0 : 1); i++)
+        {
+            <li class="page-item @(Model.ActivePage == i ? "active": "")" data-page-index="@i.ToString()"><a class="page-link" href="#">@i.ToString()</a></li>
+        }
+    </ul>
+</nav>
+

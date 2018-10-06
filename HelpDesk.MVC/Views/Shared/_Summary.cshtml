@@ -1,0 +1,18 @@
+﻿<div class="">
+    @*SUMMARY*@
+    @{ var summary = Convert.ToInt32(ViewData[HelpDesk.MVC.Resources.ViewData.Summary]); }
+
+    <div class="">
+        @Html.Partial("_Pager",
+                 new HelpDesk.Domain.Entities.Pager()
+                 {
+                     TotalRegisters = summary,
+                     ActivePage = 1,     //O primeiro valor é sempre 1.
+            PageSize = HelpDesk.MVC.App_Start.AppSettingsConfig.ListPageSize
+                 })
+    </div>
+
+    @*Registros: @summary.ToString("N0")*@
+
+    Exibindo <b>@((HelpDesk.MVC.App_Start.AppSettingsConfig.ListPageSize > @summary ? @summary : HelpDesk.MVC.App_Start.AppSettingsConfig.ListPageSize).ToString("N0"))</b> de <b>@summary.ToString("N0")</b> registros
+</div>

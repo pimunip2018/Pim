@@ -1,0 +1,541 @@
+﻿abody {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.contrato {
+    width: 150px;
+    border: none; /*Retira as bordas do input*/
+    border-bottom: solid 1px #ffffff; /*Coloca borda somente na parte de baixo*/
+}
+
+.campos {
+    width: 200px;
+}
+
+
+.taxacet {
+    display: none;
+    width: 200px;
+}
+
+.simulator[_ngcontent-c11] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    overflow: hidden
+}
+
+.simulador-questions[_ngcontent-c11] {
+    padding: 15px 20px 0
+}
+
+.simulador-question[_ngcontent-c11] {
+    font-size: 1.0625em;
+    font-weight: 300;
+    color: #575757;
+    padding-bottom: 5px
+}
+
+.simulador-value[_ngcontent-c11] {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #00b683
+}
+
+.simulator-slider[_ngcontent-c11] {
+    display: block;
+    height: 35px;
+    margin-bottom: 20px
+}
+
+.simulador-slider-help[_ngcontent-c11] {
+    position: absolute;
+    top: 22px;
+    font-size: .75em;
+    font-weight: 300;
+    color: #575755
+}
+
+    .simulador-slider-help[_ngcontent-c11]:nth-child(odd) {
+        right: 0
+    }
+
+    .simulador-slider-help[_ngcontent-c11]:nth-child(even) {
+        left: 0
+    }
+
+.simulator-result[_ngcontent-c11] {
+    padding: 15px 0;
+    background-color: white;
+    text-align: center;
+    border: 1px solid #beb8b8;
+    box-shadow: 3px 3px 3px #beb8b8;
+}
+
+    .simulator-result[_ngcontent-c11]:hover {
+        padding: 15px 0;
+        background-color: rgb(201, 209, 222);
+        text-align: center;
+        border: 1px solid rgb(146, 162, 189);
+    }
+
+.simulator-result-label[_ngcontent-c11] {
+    padding-bottom: 15px;
+    font-size: 1.0625em;
+    font-weight: 300;
+    color: #575755
+}
+
+.simulator-result-installments[_ngcontent-c11] {
+    font-size: 1.5625em;
+    font-weight: 300;
+    color: black;
+    line-height: 1
+}
+
+.simulator-result-value[_ngcontent-c11] {
+    padding-bottom: 5px;
+    font-size: 1.875em;
+    font-weight: 500;
+    color: black;
+    line-height: 1.6;
+    font-style: bold;
+}
+
+    .simulator-result-value[_ngcontent-c11] .suffix[_ngcontent-c11] {
+        font-weight: 100
+    }
+
+.simulator-result-disclamer[_ngcontent-c11] {
+    padding-top: 15px;
+    margin: 0 30px;
+    border-top: 1px solid #575755;
+    font-size: .6875em;
+    font-weight: 300;
+    color: #575755
+}
+
+.simulator-result-icon-container {
+    float: right;
+    padding-right: 20px;
+}
+
+.simulator-result-info-icon {
+    font-size: 25px;
+    color: #428bca;
+    vertical-align: text-bottom;
+}
+
+.simulator-submit[_ngcontent-c11] {
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-transform: uppercase
+}
+
+@media {
+    .simulator[_ngcontent-c11] {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row
+    }
+
+    .simulator-result[_ngcontent-c11] {
+        width: 250px;
+        float: left;
+        margin: 10px;
+    }
+
+    .simulator-slider[_ngcontent-c11] {
+        margin-bottom: 15px;
+        margin-left: 20px;
+        margin-right: 20px
+    }
+
+    .simulador-slider-help[_ngcontent-c11] {
+        font-size: .875em
+    }
+
+        .simulador-slider-help[_ngcontent-c11]:nth-child(odd) {
+            right: -15px
+        }
+
+        .simulador-slider-help[_ngcontent-c11]:nth-child(even) {
+            left: -15px
+        }
+
+    .simulator-result-label[_ngcontent-c11] {
+        padding: 0 10px 20px;
+        font-size: 1.125em
+    }
+}
+
+
+*, *:active, *:focus {
+    outline: 0 none !important;
+}
+
+
+/*table tr th {
+    font-size: 10px;
+    text-align: center;
+}
+
+table tr {
+    cursor: pointer;
+}
+
+    table tr td {
+        font-size: 10px;
+        text-align: center;
+    }*/
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+/*#region TABLE LIST */
+table.bmw-list {
+}
+
+    table.bmw-list tr th.button {
+        width: 15px;
+        text-align: center
+    }
+
+    table.bmw-list tr td.button {
+        text-align: center;
+        cursor: pointer
+    }
+
+        table.bmw-list tr td.button a {
+            color: #000
+        }
+
+    table.bmw-list tr th[data-order-field] {
+        cursor: pointer
+    }
+
+div.bmw-list.empty {
+    background-color: #f5f5f5;
+    font-size: 1em;
+    line-height: 5em;
+    text-align: center
+}
+
+div.panel div.panel-heading a {
+    text-decoration: none;
+}
+/*#endregion */
+
+.aspNetDisabled {
+    cursor: not-allowed !important;
+    opacity: 0.45;
+}
+
+
+div.blockMsg {
+    top: 0 !important
+}
+
+label span.required {
+    font-weight: bold;
+    font-size: 13px;
+    color: red
+}
+
+/*#region MARGINS */
+div.list-header {
+}
+
+    div.list-header hr {
+    }
+
+/*#endregion */
+
+/*#region MARGINS */
+.margin-top-0 {
+    margin-top: 0
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0
+}
+
+.margin-top-10 {
+    margin-top: 10px
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px
+}
+
+.margin-top-20 {
+    margin-top: 20px
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px
+}
+
+/*#endregion */
+
+
+/*#region PADDING */
+.padding-top-0 {
+    padding-top: 0 !important
+}
+
+.padding-bottom-0 {
+    padding-bottom: 0 !important
+}
+
+.padding-top-10 {
+    padding-top: 10px
+}
+
+.padding-bottom-10 {
+    padding-bottom: 10px
+}
+
+.padding-top-20 {
+    padding-top: 20px
+}
+
+.padding-bottom-20 {
+    padding-bottom: 20px
+}
+
+.padding-right-0 {
+    padding-right: 0 !important
+}
+
+/*#endregion */
+
+/*#region COLORS */
+
+.red {
+    color: red
+}
+
+.white {
+    color: white
+}
+
+.blue {
+    color: blue
+}
+
+/*#endregion */
+
+
+/*#region MISC */
+.width-0 {
+    width: 0 !important;
+    max-width: 0
+}
+
+.float-right {
+    float: right
+}
+
+.float-left {
+    float: left
+}
+/*#endregion */
+
+.pagination {
+    outline: none 0;
+}
+
+/*#region SELECT2 FIXES */
+
+div.select2-container {
+    padding: 0 !important;
+    border: 0 none !important
+}
+
+span.select2 span.selection.form-control {
+    height: 34px;
+    border: 0 none;
+    padding: 0
+}
+
+.select2-selection--single.form-control {
+    height: 34px !important;
+    border: 0 none;
+    padding: 0
+}
+/*div.select2-container a.select2-choice,*/
+.select2-selection__rendered,
+.select2-selection__placeholder {
+    height: 34px !important;
+    line-height: 34px !important;
+}
+
+.select2-selection.select2-selection--single {
+    height: 34px !important;
+    line-height: 34px !important;
+}
+
+.select2-selection__arrow {
+    height: 34px !important;
+    line-height: 34px !important;
+}
+
+
+.checkbox-bmw {
+    width: 20px;
+    position: relative;
+    margin: 20px auto;
+    label
+
+{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fcfff4;
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    &:after
+
+{
+    content: '';
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    transform: rotate(-45deg);
+}
+
+&:hover::after {
+    opacity: 0.5;
+}
+
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after
+
+{
+    opacity: 1;
+}
+
+}
+}
+
+/*#endregion */
+
+/*#region MENU */
+.pushy-submenu button {
+    padding: 15px 30px 15px 0 !important
+}
+
+.pushy a {
+    padding: 0 30px 15px 10px !important
+}
+/*#endregion */
+
+.button {
+    cursor: pointer
+}
+
+.large-button {
+    cursor: pointer
+}
+
+    .large-button i {
+        font-size: x-large;
+    }
+
+    .large-button:hover {
+        opacity: 0.6
+    }
+
+/*#region CONTROLE ASCESSO RECURSO */
+
+
+div.RecursoPermissao {
+}
+
+    div.RecursoPermissao div.recurso {
+    }
+
+    div.RecursoPermissao div.permissao {
+    }
+
+        div.RecursoPermissao div.permissao div.checks {
+            height: 34px;
+            border: 1px solid #808080;
+            border-radius: 5px;
+            display: table-cell;
+            float: left;
+            padding: 0 15px
+        }
+
+        div.RecursoPermissao div.permissao a.aRemoveRecurso {
+            float: left;
+            line-height: 3em
+        }
+
+            div.RecursoPermissao div.permissao a.aRemoveRecurso i {
+            }
+
+        div.RecursoPermissao div.permissao div.checks div.check-container {
+            float: left;
+            line-height: 34px
+        }
+/*#endregion */
+
+.field-validation-error {
+    color: red
+}

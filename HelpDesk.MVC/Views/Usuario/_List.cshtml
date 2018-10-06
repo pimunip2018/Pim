@@ -1,0 +1,24 @@
+﻿@model List<HelpDesk.Domain.Entities.Usuario>
+
+<div class="table-responsive">
+    <table class="table table-condensed table-hover table-striped bmw-list">
+        <tr>
+            <th data-order-field="Descricao">Descrição</th>
+            @*Buttons*@
+            <th class="button "></th>
+        </tr>
+
+
+        @foreach (var m in Model)
+        {
+            <tr data-pk="@m.UsuarioID">
+                
+                <td class="button edit">
+                    <a title="Editar" class="RowDefaultButton" href="@(Url.Action("Edit", new { pk = m.UsuarioID, callerUrl = Request.QueryString[HelpDesk.MVC.Resources.ViewData.CallerUrl] }))" data-toggle="tooltip"><i class="fa fa-edit " aria-hidden="true"></i></a> @*RowDefaultButton*@
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
