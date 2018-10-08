@@ -19,6 +19,7 @@ namespace HelpDesk.Desktop
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
+            limpartela();
             this.Close();
         }
 
@@ -26,7 +27,8 @@ namespace HelpDesk.Desktop
         {
            
             limpartela();
-        
+            this.Close();
+
         }
 
         private void limpartela()
