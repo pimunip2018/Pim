@@ -66,7 +66,6 @@ namespace HelpDesk.Desktop
         private void btnEditar_Click(object sender, EventArgs e)
         {
             dtDados.CurrentCell = dtDados.Rows[0].Cells[1];
-            dtDados.CurrentRow=dtDados.Rows[0];
             if (dtDados.SelectedRows.Count > 0)
             {
                 frmCadastroPessoa frm = new frmCadastroPessoa();
