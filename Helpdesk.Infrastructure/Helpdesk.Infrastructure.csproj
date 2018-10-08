@@ -47,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DadosDaConexao.cs" />
     <Compile Include="Data\DALConexao.cs" />
+    <Compile Include="Data\DALPessoaPF.cs" />
     <Compile Include="Data\DALTipoPessoa.cs" />
     <Compile Include="Data\DALUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -109,7 +109,7 @@ namespace HelpDesk.Desktop
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmConsultaTipoPessoa());
+            AbrirFormInPanel(new frmConsultaPessoa());
         }
 
         private void button4_Click(object sender, EventArgs e)

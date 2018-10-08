@@ -1,21 +1,25 @@
 ﻿using HelpDesk.Domain.Modelo;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Helpdesk.Infrastructure.Data
 {
-    public class DALTipoPessoa
+    public class DALPessoaPF
     {
         private DALConexao Conexao;
 
-        public DALTipoPessoa(DALConexao dalConexao)
+        public DALPessoaPF(DALConexao dalConexao)
         {
             this.Conexao = dalConexao;
         }
-       
 
-        public void Incluir(TipoUsuario modelo)
+
+        public void Incluir(PessoaPF modelo)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = Conexao.ObjetoConexao;
@@ -27,13 +31,13 @@ namespace Helpdesk.Infrastructure.Data
             Conexao.Desconectar();
         }
 
-        public void Alterar(TipoUsuario modelo)
+        public void Alterar(PessoaPF modelo)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = Conexao.ObjetoConexao;
             cmd.CommandText = "[dbo].[spTipoUsuarioUpdate]";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@id", modelo.TipoPessoaId);
+            cmd.Parameters.AddWithValue("@id", modelo.PessoaPFId);
             cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             Conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -48,7 +52,7 @@ namespace Helpdesk.Infrastructure.Data
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", id);
             Conexao.Conectar();
-                    cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             Conexao.Desconectar();
         }
 
@@ -56,28 +60,28 @@ namespace Helpdesk.Infrastructure.Data
         {
 
             DataTable tabela = new DataTable();
-            SqlCommand cm = new SqlCommand("[dbo].[spTipoUsuarioLocaliza]", Conexao.Conectar());
+            SqlCommand cm = new SqlCommand("[dbo].[spPessoaPFLocaliza]", Conexao.Conectar());
             cm.CommandType = CommandType.StoredProcedure;
-            cm.Parameters.AddWithValue("@valor",Convert.ToString(valor));
+            cm.Parameters.AddWithValue("@valor", Convert.ToString(valor));
             SqlDataAdapter da = new SqlDataAdapter(cm);
             da.Fill(tabela);
             return tabela;
         }
 
-        public TipoUsuario CarregaTipoPessoa(int id)
+        public TipoUsuario CarregaPessoaPF(int id)
         {
             TipoUsuario modelo = new TipoUsuario();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = Conexao.ObjetoConexao;
-            cmd.CommandText = "[dbo].[spTipoUsuarioLocalizaPorId] ";
+            cmd.CommandText = "[dbo].[spPessoaPFLocaliza] ";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id", id);
             Conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();
-            if(registro.HasRows)
+            if (registro.HasRows)
             {
                 registro.Read();
-                modelo.TipoPessoaId = Convert.ToInt32(registro["TipoUsuarioId"]);
+                modelo.TipoPessoaId = Convert.ToInt32(registro["PessoaPFId"]);
                 modelo.Nome = Convert.ToString(registro["Nome"]);
             }
             return modelo;

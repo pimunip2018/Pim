@@ -84,7 +84,8 @@ namespace HelpDesk.Desktop
             lblErroSenha.Visible = false;
             lblErroUsuario.Visible = false;
             lblErroLogin.Visible = false;
-            BLLUSuario user = new BLLUSuario();
+            DALConexao dal = new DALConexao();
+            BLLUSuario user = new BLLUSuario(dal);
             SqlDataReader Logar;
             user.usuario = txtCpf.Text;
             user.senha = txtSenha.Text;

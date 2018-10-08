@@ -9,30 +9,30 @@ using System.Threading.Tasks;
 
 namespace HelpDesk.BLL
 {
-    public class BLLTipoPessoa
+    public class BLLPessoaPF
     {
         private DALConexao Conexao;
 
 
-        public BLLTipoPessoa(DALConexao dalConexao)
+        public BLLPessoaPF(DALConexao dalConexao)
         {
             this.Conexao = dalConexao;
         }
 
-        public void Incluir(TipoUsuario modelo)
+        public void Incluir(PessoaPF modelo)
         {
             if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Tipo de Pessoa é obrigatório");
             }
 
-            DALTipoPessoa DalObj = new DALTipoPessoa(Conexao);
+            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
             DalObj.Incluir(modelo);
         }
 
-        public void Alterar(TipoUsuario modelo)
+        public void Alterar(PessoaPF modelo)
         {
-            if (modelo.TipoPessoaId < 0)
+            if (modelo.PessoaPFId < 0)
             {
                 throw new Exception("O código do Tipo de Pessoa é obrigatório");
             }
@@ -41,28 +41,26 @@ namespace HelpDesk.BLL
                 throw new Exception("O nome do Tipo de Pessoa é obrigatório");
             }
 
-            DALTipoPessoa DalObj = new DALTipoPessoa(Conexao);
+            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
             DalObj.Alterar(modelo);
         }
 
         public void Excluir(int id)
         {
-            DALTipoPessoa DalObj = new DALTipoPessoa(Conexao);
+            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
             DalObj.Excluir(id);
         }
 
         public DataTable Localizar(string valor)
         {
-            DALTipoPessoa DalObj = new DALTipoPessoa(Conexao);
+            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
             return DalObj.Localizar(valor);
 
         }
-        public TipoUsuario CarregaTipoPessoa(int id)
+        public TipoUsuario CarregaPessoaPF(int id)
         {
-            DALTipoPessoa DalObj = new DALTipoPessoa(Conexao);
-            return DalObj.CarregaTipoPessoa(id);
+            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
+            return DalObj.CarregaPessoaPF(id);
         }
-
-
     }
 }

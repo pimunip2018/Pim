@@ -21,63 +21,25 @@ namespace HelpDesk.Desktop
             InitializeComponent();
         }
 
-        public void MostrarDados()
+        public void MostrarDados( string valor)
         {
             DALConexao dal = new DALConexao();
             BLLTipoPessoa bll = new BLLTipoPessoa(dal);
-
-            dtDados.DataSource = bll.Localizar(txtValor.Text);
+            dtDados.DataSource = null;
+            dtDados.DataSource = bll.Localizar(valor);
+           
+            dtDados.Refresh();
+            dtDados.Update();
         }
-
-        public void LimpaTela()
-        {
-            txtCodigo.Clear();
-            txtDescricao.Clear();
-        }
+        
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            this.MostrarDados();
+            this.MostrarDados(txtValor.Text);
         }
 
         private void frmConsultaTipoPessoa_Load(object sender, EventArgs e)
         {
-            this.MostrarDados();
-        }
-
-        private void dtDados_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                TipoPessoa modelo = new TipoPessoa();
-                modelo.Nome = txtDescricao.Text;
-                DALConexao dal = new DALConexao();
-                BLLTipoPessoa bll = new BLLTipoPessoa(dal);
-
-                if (txtCodigo.Text == "")
-                {
-                    bll.Incluir(modelo);
-                    MessageBox.Show("Tipo de Pessoa cadastrado com sucesso!");
-
-                }
-                else
-                {
-                    modelo.TipoPessoaId = Convert.ToInt32(txtCodigo.Text);
-                    bll.Alterar(modelo);
-                    MessageBox.Show("Tipo de Pessoa atualizado com sucesso!");
-                }
-                LimpaTela();
-                MostrarDados();
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-
+            this.MostrarDados(txtValor.Text);
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -91,10 +53,11 @@ namespace HelpDesk.Desktop
             {
                 string id = dtDados.CurrentRow.Cells["TipoUsuarioId"].Value.ToString();
                 string descricao= dtDados.CurrentRow.Cells["Nome"].Value.ToString();
-                frmCadastroTipoUsuario frm = new frmCadastroTipoUsuario(id, descricao);
-                frm.Show();
-                txtCodigo.Text = id;
-                txtDescricao.Text = descricao;
+                frmCadastroTipoUsuario frm = new frmCadastroTipoUsuario();
+                frm.txtCodigo.Text = id;
+                frm.txtDescricao.Text = descricao;
+                frm.ShowDialog();
+                this.MostrarDados(txtValor.Text);
             }
             else
             {
@@ -104,7 +67,9 @@ namespace HelpDesk.Desktop
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            LimpaTela();
+            frmCadastroTipoUsuario frm = new frmCadastroTipoUsuario();
+            frm.ShowDialog();
+            this.MostrarDados(txtValor.Text);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -122,8 +87,7 @@ namespace HelpDesk.Desktop
                         BLLTipoPessoa bll = new BLLTipoPessoa(dal);
 
                         bll.Excluir(Convert.ToInt32(dtDados.CurrentRow.Cells["TipoUsuarioId"].Value.ToString()));
-                        this.LimpaTela();
-                        MostrarDados();
+                        MostrarDados(txtValor.Text);
                       
                     }
                 }
@@ -137,8 +101,15 @@ namespace HelpDesk.Desktop
             {
 
                 MessageBox.Show("Impossível excluir o registro. \n O registro está sendo utilizado em outra operação");
-                MostrarDados();
+                MostrarDados(txtValor.Text);
             }
+        }
+
+        private void dtDados_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            dtDados.Columns["TipoUsuarioId"].Width = 100;
+            dtDados.Columns["TipoUsuarioId"].HeaderText = "Codigo";
+            dtDados.Columns["Nome"].Width = 477;
         }
     }
 }

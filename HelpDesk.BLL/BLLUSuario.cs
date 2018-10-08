@@ -10,19 +10,22 @@ namespace HelpDesk.BLL
 {
     public class BLLUSuario
     {
-        private DALUsuario Obj = new DALUsuario();
+        private DALConexao Conexao;
+
+
+        public BLLUSuario(DALConexao dalConexao)
+        {
+            this.Conexao = dalConexao;
+        }
         public string usuario { get; set; }
         public string senha { get; set; }
 
-        public BLLUSuario()
-        {
-
-        }
-
+        
         public SqlDataReader IniciaSessao()
         {
             SqlDataReader Logar;
-            Logar = Obj.iniciaSessao(usuario, senha);
+            DALUsuario DalObj = new DALUsuario(Conexao);
+            Logar = DalObj.iniciaSessao(usuario, senha);
             return Logar;
         }
 

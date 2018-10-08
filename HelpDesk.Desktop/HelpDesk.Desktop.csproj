@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCadastroPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroPessoa.Designer.cs">
+      <DependentUpon>frmCadastroPessoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroTipoPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,12 @@
     </Compile>
     <Compile Include="frmCadastroTipoUsuario.Designer.cs">
       <DependentUpon>frmCadastroTipoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaPessoa.Designer.cs">
+      <DependentUpon>frmConsultaPessoa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultaTipoPessoa.cs">
       <SubType>Form</SubType>
@@ -123,11 +135,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="frmCadastroPessoa.resx">
+      <DependentUpon>frmCadastroPessoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroTipoPessoa.resx">
       <DependentUpon>frmCadastroTipoPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroTipoUsuario.resx">
       <DependentUpon>frmCadastroTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaPessoa.resx">
+      <DependentUpon>frmConsultaPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaTipoPessoa.resx">
       <DependentUpon>frmConsultaTipoPessoa.cs</DependentUpon>

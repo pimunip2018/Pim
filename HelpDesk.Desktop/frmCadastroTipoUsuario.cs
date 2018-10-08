@@ -20,25 +20,18 @@ namespace HelpDesk.Desktop
             InitializeComponent();
         }
 
-        public frmCadastroTipoUsuario(string codigo, string descricao)
-        {
-            InitializeComponent();
-            txtCodigo.Text = codigo.ToString();
-            txtDescricao.Text = descricao.ToString();
-
-        }
-        
         public void LimpaTela()
         {
             txtCodigo.Clear();
             txtDescricao.Clear();
         }
-
+        
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             try
             {
-                TipoPessoa modelo = new TipoPessoa();
+               
+                TipoUsuario modelo = new TipoUsuario();
                 modelo.Nome = txtDescricao.Text;
                 DALConexao dal = new DALConexao();
                 BLLTipoPessoa bll = new BLLTipoPessoa(dal);
@@ -55,8 +48,11 @@ namespace HelpDesk.Desktop
                     bll.Alterar(modelo);
                     MessageBox.Show("Tipo de Pessoa atualizado com sucesso!");
                 }
+               
                 LimpaTela();
+                this.Close();
                 
+
             }
             catch (Exception erro)
             {

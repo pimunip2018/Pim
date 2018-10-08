@@ -40,19 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\Cliente.cs" />
-    <Compile Include="Modelo\Contato.cs" />
     <Compile Include="Modelo\Endereco.cs" />
-    <Compile Include="Modelo\Menu.cs" />
-    <Compile Include="Modelo\Profissao.cs" />
-    <Compile Include="Modelo\ProfissaoCliente.cs" />
-    <Compile Include="Interfaces\Repository\IRepository.cs" />
-    <Compile Include="Modelo\TipoPessoa.cs" />
+    <Compile Include="Modelo\PessoaPF.cs" />
+    <Compile Include="Modelo\TipoUsuario.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Services\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
