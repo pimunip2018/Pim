@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace Helpdesk.Infrastructure.Data
 {
-    public class DALPessoaPF
+    public class DALPessoa
     {
         private DALConexao Conexao;
 
-        public DALPessoaPF(DALConexao dalConexao)
+        public DALPessoa(DALConexao dalConexao)
         {
             this.Conexao = dalConexao;
         }
 
 
-        public void Incluir(PessoaPF modelo)
+        public void Incluir(Pessoa modelo)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = Conexao.ObjetoConexao;
@@ -31,13 +31,13 @@ namespace Helpdesk.Infrastructure.Data
             Conexao.Desconectar();
         }
 
-        public void Alterar(PessoaPF modelo)
+        public void Alterar(Pessoa modelo)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = Conexao.ObjetoConexao;
             cmd.CommandText = "[dbo].[spTipoUsuarioUpdate]";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@id", modelo.PessoaPFId);
+            cmd.Parameters.AddWithValue("@id", modelo.CPF);
             cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             Conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -60,7 +60,7 @@ namespace Helpdesk.Infrastructure.Data
         {
 
             DataTable tabela = new DataTable();
-            SqlCommand cm = new SqlCommand("[dbo].[spPessoaPFLocaliza]", Conexao.Conectar());
+            SqlCommand cm = new SqlCommand("[dbo].[spPessoaLocaliza]", Conexao.Conectar());
             cm.CommandType = CommandType.StoredProcedure;
             cm.Parameters.AddWithValue("@valor", Convert.ToString(valor));
             SqlDataAdapter da = new SqlDataAdapter(cm);

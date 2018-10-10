@@ -33,14 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultaPessoa));
             this.btnFechar = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dtDados = new System.Windows.Forms.DataGridView();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtDados)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnFechar
@@ -51,22 +53,12 @@
             this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnFechar.Location = new System.Drawing.Point(1252, 9);
+            this.btnFechar.Location = new System.Drawing.Point(1016, 7);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(20, 20);
             this.btnFechar.TabIndex = 10;
             this.btnFechar.Text = "X";
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 31);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Cadastro de Pesoa";
             // 
             // dtDados
             // 
@@ -88,8 +80,9 @@
             this.dtDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtDados.ColumnHeadersHeight = 30;
             this.dtDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtDados.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dtDados.EnableHeadersVisualStyles = false;
-            this.dtDados.Location = new System.Drawing.Point(39, 138);
+            this.dtDados.Location = new System.Drawing.Point(38, 136);
             this.dtDados.Name = "dtDados";
             this.dtDados.ReadOnly = true;
             this.dtDados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -113,14 +106,20 @@
             this.dtDados.TabIndex = 19;
             this.dtDados.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtDados_CellFormatting);
             // 
-            // txtValor
+            // panel1
             // 
-            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txtValor.Location = new System.Drawing.Point(39, 103);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(520, 26);
-            this.txtValor.TabIndex = 17;
+            this.panel1.Controls.Add(this.btnFechar);
+            this.panel1.Controls.Add(this.btnExcluir);
+            this.panel1.Controls.Add(this.btnNovo);
+            this.panel1.Controls.Add(this.btnEditar);
+            this.panel1.Controls.Add(this.btnPesquisar);
+            this.panel1.Controls.Add(this.txtValor);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dtDados);
+            this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1044, 609);
+            this.panel1.TabIndex = 23;
             // 
             // btnExcluir
             // 
@@ -132,12 +131,13 @@
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(776, 287);
+            this.btnExcluir.Location = new System.Drawing.Point(778, 286);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(167, 46);
-            this.btnExcluir.TabIndex = 22;
+            this.btnExcluir.TabIndex = 28;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnNovo
             // 
@@ -149,12 +149,13 @@
             this.btnNovo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(776, 210);
+            this.btnNovo.Location = new System.Drawing.Point(778, 209);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(167, 46);
-            this.btnNovo.TabIndex = 21;
+            this.btnNovo.TabIndex = 27;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnEditar
             // 
@@ -166,10 +167,10 @@
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(776, 137);
+            this.btnEditar.Location = new System.Drawing.Point(778, 136);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(167, 46);
-            this.btnEditar.TabIndex = 20;
+            this.btnEditar.TabIndex = 26;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -177,45 +178,58 @@
             // btnPesquisar
             // 
             this.btnPesquisar.Image = global::HelpDesk.Desktop.Properties.Resources.localizar_pq_fw;
-            this.btnPesquisar.Location = new System.Drawing.Point(578, 103);
+            this.btnPesquisar.Location = new System.Drawing.Point(577, 84);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(39, 29);
-            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.TabIndex = 25;
             this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.txtValor.Location = new System.Drawing.Point(38, 84);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(520, 26);
+            this.txtValor.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(405, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(246, 31);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Cadastro de Pesoa";
             // 
             // frmConsultaPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 611);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dtDados);
-            this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.txtValor);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnFechar);
+            this.ClientSize = new System.Drawing.Size(1047, 611);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConsultaPessoa";
             this.Text = "frmCadastroUsuario";
             this.Load += new System.EventHandler(this.frmCadastroUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtDados)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label btnFechar;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridView dtDados;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
-        public System.Windows.Forms.DataGridView dtDados;
         private System.Windows.Forms.Button btnPesquisar;
         public System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -9,30 +9,30 @@ using System.Threading.Tasks;
 
 namespace HelpDesk.BLL
 {
-    public class BLLPessoaPF
+    public class BLLPessoa
     {
         private DALConexao Conexao;
 
 
-        public BLLPessoaPF(DALConexao dalConexao)
+        public BLLPessoa(DALConexao dalConexao)
         {
             this.Conexao = dalConexao;
         }
 
-        public void Incluir(PessoaPF modelo)
+        public void Incluir(Pessoa modelo)
         {
             if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Tipo de Pessoa é obrigatório");
             }
 
-            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
+            DALPessoa DalObj = new DALPessoa(Conexao);
             DalObj.Incluir(modelo);
         }
 
-        public void Alterar(PessoaPF modelo)
+        public void Alterar(Pessoa modelo)
         {
-            if (modelo.PessoaPFId < 0)
+            if (modelo.CPF < 0)
             {
                 throw new Exception("O código do Tipo de Pessoa é obrigatório");
             }
@@ -41,25 +41,25 @@ namespace HelpDesk.BLL
                 throw new Exception("O nome do Tipo de Pessoa é obrigatório");
             }
 
-            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
+            DALPessoa DalObj = new DALPessoa(Conexao);
             DalObj.Alterar(modelo);
         }
 
         public void Excluir(int id)
         {
-            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
+            DALPessoa DalObj = new DALPessoa(Conexao);
             DalObj.Excluir(id);
         }
 
         public DataTable Localizar(string valor)
         {
-            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
+            DALPessoa DalObj = new DALPessoa(Conexao);
             return DalObj.Localizar(valor);
 
         }
         public TipoUsuario CarregaPessoaPF(int id)
         {
-            DALPessoaPF DalObj = new DALPessoaPF(Conexao);
+            DALPessoa DalObj = new DALPessoa(Conexao);
             return DalObj.CarregaPessoaPF(id);
         }
     }

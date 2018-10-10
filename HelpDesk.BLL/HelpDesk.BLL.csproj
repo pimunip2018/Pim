@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLLPessoaPF.cs" />
+    <Compile Include="BLLPessoa.cs" />
+    <Compile Include="BLLSexo.cs" />
     <Compile Include="BLLTipoPessoa.cs" />
     <Compile Include="BLLUSuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
